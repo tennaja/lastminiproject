@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "177055059189",
-    "project_id": "registerlogin-dab48",
-    "storage_bucket": "registerlogin-dab48.appspot.com"
+    "project_number": "8820754433",
+    "project_id": "registerandlogin-4051e",
+    "storage_bucket": "registerandlogin-4051e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:177055059189:android:b9bb45388a9703c197c9bc",
+        "mobilesdk_app_id": "1:8820754433:android:a9341b69d14ad6a32ed800",
         "android_client_info": {
           "package_name": "com.example.flutter_application_1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "177055059189-7t7382eehsnqbvd8fv5mugln2su3lqid.apps.googleusercontent.com",
+          "client_id": "8820754433-ha91v94uu2993sg9mmjevhtseiva0oo7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAJKtF3g0nhk8h4nreRSeUPomaXhuy29AI"
+          "current_key": "AIzaSyCTp__zHvAapbSw6yI_HEA6z13NWNi2pj0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "177055059189-7t7382eehsnqbvd8fv5mugln2su3lqid.apps.googleusercontent.com",
+              "client_id": "8820754433-ha91v94uu2993sg9mmjevhtseiva0oo7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
