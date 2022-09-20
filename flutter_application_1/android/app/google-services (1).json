@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177055059189",
+    "project_id": "registerlogin-dab48",
+    "storage_bucket": "registerlogin-dab48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177055059189:android:b9bb45388a9703c197c9bc",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177055059189-7t7382eehsnqbvd8fv5mugln2su3lqid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJKtF3g0nhk8h4nreRSeUPomaXhuy29AI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177055059189-7t7382eehsnqbvd8fv5mugln2su3lqid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
