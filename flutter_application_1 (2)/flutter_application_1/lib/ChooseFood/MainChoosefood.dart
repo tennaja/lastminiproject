@@ -11,9 +11,9 @@ class ChooseFood extends StatefulWidget {
 }
 class _ChooseFoodState extends State<ChooseFood> {
   List<Foodmenu> menu=[
-    Foodmenu("กุ้งเผา","5000","assets/image/กุ้งเผา.jpg"),
-    Foodmenu("ต้มยำ","80","assets/image/ต้มยำ.jpg"),
-    Foodmenu("ส้มตำ", "60","assets/image/ส้มตำ.jpg")
+    Foodmenu("กุ้งเผา","5000","assets/image/kungpao.jpg"),
+    Foodmenu("ต้มยำ","80","assets/image/tomyum.jpg"),
+    Foodmenu("ส้มตำ", "60","assets/image/somtum.jpg")
   ];
 
   @override
