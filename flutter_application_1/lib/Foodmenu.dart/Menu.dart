@@ -41,8 +41,8 @@ class _MenuState extends State<Menu> {
     return Scaffold(
           appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.black,
-          title: Text(" FOOD MENU"),
+          backgroundColor: Colors.red,
+          title: Text(" FOOD MENU",style: TextStyle(color: Colors.white),),
         ),
       body : ListView.builder(
         itemCount: foodLists.length,

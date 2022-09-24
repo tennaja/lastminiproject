@@ -21,8 +21,9 @@ class _CountNumState extends State<CountNum> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(widget.title),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        title: Text("โปรแกรมนับเลข",style: TextStyle(color: Colors.white),),
       ),
       body: Center(
         child: Column(

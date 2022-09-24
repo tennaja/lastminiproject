@@ -15,7 +15,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
-        backgroundColor: Colors.black,
+        centerTitle: true,
+        backgroundColor: Colors.red,
         title: Text("CALCULATOR",style: TextStyle(color: Colors.white),),
       ),
       body : SafeArea(

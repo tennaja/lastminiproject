@@ -1,3 +1,4 @@
+import 'package:flutter_application_1/Homepage/fisrtpage.dart';
 import 'package:flutter_application_1/login_page/header_widget.dart';
 import 'package:flutter_application_1/login_page/theme_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,155 +16,145 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  double _headerHeight = 250;
   final _formKey = GlobalKey<FormState>();
   String useremail, userpassword;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: StreamBuilder<User>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return BottomNavigationBar();
-            } else {
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      height: _headerHeight,
-                      child: HeaderWidget(
-                          _headerHeight,
-                          true,
-                          Icons
-                              .login_rounded), //let's create a common header widget
-                    ),
-                    SafeArea(
-                      child: Container(
-                          padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                          margin: EdgeInsets.fromLTRB(
-                              20, 10, 20, 10), // This will be the login form
-                          child: Column(
-                            children: [
-                              Text(
-                                'Hello',
-                                style: TextStyle(
-                                    fontSize: 60, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                'Signin into your account',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              SizedBox(height: 30.0),
-                              Form(
-                                  key: _formKey,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        child: TextFormField(
-                                          onSaved: (email) {
-                                            useremail = email;
-                                          },
-                                          decoration: ThemeHelper()
-                                              .textInputDecoration('User email',
-                                                  'Enter your user email'),
-                                        ),
-                                        decoration: ThemeHelper()
-                                            .inputBoxDecorationShaddow(),
-                                      ),
-                                      SizedBox(height: 30.0),
-                                      Container(
-                                        child: TextFormField(
-                                          onSaved: (password) {
-                                            userpassword = password;
-                                          },
-                                          obscureText: true,
-                                          decoration: ThemeHelper()
-                                              .textInputDecoration('Password',
-                                                  'Enter your password'),
-                                        ),
-                                        decoration: ThemeHelper()
-                                            .inputBoxDecorationShaddow(),
-                                      ),
-                                      SizedBox(height: 15.0),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 0, 10, 20),
-                                        alignment: Alignment.topRight,
-                                        child: GestureDetector(
-                                          onTap: () {},
-                                          child: Text(
-                                            "Forgot your password?",
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        decoration: ThemeHelper()
-                                            .buttonBoxDecoration(context),
-                                        child: ElevatedButton(
-                                          style: ThemeHelper().buttonStyle(),
-                                          child: Padding(
-                                            padding: EdgeInsets.fromLTRB(
-                                                40, 10, 40, 10),
-                                            child: Text(
-                                              'Sign In'.toUpperCase(),
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white),
-                                            ),
-                                          ),
-                                          onPressed: () {
-                                            if (_formKey.currentState
-                                                .validate()) {
-                                              _formKey.currentState.save();
-                                              print('email : ${useremail}');
-                                              print(
-                                                  'password : ${userpassword}');
-                                              singIn(useremail, userpassword);
-                                            }
-                                          },
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 10, 20),
-                                        //child: Text('Don\'t have an account? Create'),
-                                        child: Text.rich(TextSpan(children: [
-                                          TextSpan(
-                                              text: "Don\'t have an account? "),
-                                          TextSpan(
-                                            text: 'Create',
-                                            recognizer: TapGestureRecognizer()
-                                              ..onTap = () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            RegistrationPage()));
+      body: Center(
+        child: Container(
+          child: StreamBuilder<User>(
+              stream: FirebaseAuth.instance.authStateChanges(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return FirstPage();
+                } else {
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SafeArea(
+                          child: Container(
+                              padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                              margin: EdgeInsets.fromLTRB(20, 10, 20,
+                                  10), // This will be the login form
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Hello',
+                                    style: TextStyle(
+                                        fontSize: 60,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    'เชิญเข้าส่ระบบเพื่อเข้าใช้งาน',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  SizedBox(height: 30.0),
+                                  Form(
+                                      key: _formKey,
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            child: TextFormField(
+                                              onSaved: (email) {
+                                                useremail = email;
                                               },
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Theme.of(context)
-                                                    .accentColor),
+                                              decoration: ThemeHelper()
+                                                  .textInputDecoration(
+                                                      'อีเมลล์',
+                                                      'โปรดใส่อีเมลล์ของคุณ'),
+                                            ),
+                                            decoration: ThemeHelper()
+                                                .inputBoxDecorationShaddow(),
                                           ),
-                                        ])),
-                                      ),
-                                    ],
-                                  )),
-                            ],
-                          )),
+                                          SizedBox(height: 30.0),
+                                          Container(
+                                            child: TextFormField(
+                                              onSaved: (password) {
+                                                userpassword = password;
+                                              },
+                                              obscureText: true,
+                                              decoration: ThemeHelper()
+                                                  .textInputDecoration(
+                                                      'รหัสผ่าน',
+                                                      'โปรดใส่รหัสผ่านของคุณ'),
+                                            ),
+                                            decoration: ThemeHelper()
+                                                .inputBoxDecorationShaddow(),
+                                          ),
+                                          SizedBox(height: 15.0),
+                                          Container(
+                                            decoration: ThemeHelper()
+                                                .buttonBoxDecoration(context),
+                                            child: ElevatedButton(
+                                              style:
+                                                  ThemeHelper().buttonStyle(),
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    40, 10, 40, 10),
+                                                child: Text(
+                                                  'ลงทะเบียน'.toUpperCase(),
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                if (_formKey.currentState
+                                                    .validate()) {
+                                                  _formKey.currentState.save();
+                                                  print('email : ${useremail}');
+                                                  print(
+                                                      'password : ${userpassword}');
+                                                  singIn(
+                                                      useremail, userpassword);
+                                                }
+                                              },
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                10, 20, 10, 20),
+                                            //child: Text('Don\'t have an account? Create'),
+                                            child:
+                                                Text.rich(TextSpan(children: [
+                                              TextSpan(
+                                                  text:
+                                                      "ไม่มีแอคเคาท์ใช่หรือไม่ ? "),
+                                              TextSpan(
+                                                text: 'สร้างแอคเคาท์กดที่นี่',
+                                                recognizer:
+                                                    TapGestureRecognizer()
+                                                      ..onTap = () {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        RegistrationPage()));
+                                                      },
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Theme.of(context)
+                                                        .accentColor),
+                                              ),
+                                            ])),
+                                          ),
+                                        ],
+                                      )),
+                                ],
+                              )),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              );
-            }
-          }),
+                  );
+                }
+              }),
+        ),
+      ),
     );
   }
 

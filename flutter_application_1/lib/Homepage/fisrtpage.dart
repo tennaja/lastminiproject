@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_application_1/Foodmenu.dart/Menu.dart';
 import 'package:flutter_application_1/calculators/Homescreencal.dart';
 import 'package:flutter_application_1/catorylist.dart';
 import 'package:flutter_application_1/countnum.dart';
+import 'package:flutter_application_1/login_page/login_page.dart';
 
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,14 +24,30 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         centerTitle: true,
         title: Text(
   'All Shop',
   style: GoogleFonts.lobster(
-    textStyle: TextStyle(color: Colors.black, letterSpacing: .5,fontSize: 30),
+    textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontSize: 30),
   ),
 ),
-        backgroundColor: Colors.white,
+actions: <Widget>[
+    IconButton(
+      icon: Icon(
+        Icons.logout_outlined,
+        color: Colors.white,
+      ),
+      onPressed: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return LoginPage();
+                  }));
+                });
+              },
+    )
+  ],
+        backgroundColor: Colors.red,
       ),
       body :  Container(
         
@@ -58,17 +76,16 @@ class _FirstPageState extends State<FirstPage> {
                                     )),
                           );
                         },
-                        child: Image.network(
-                          'assets/image/math.jpg',
-                          height: 250,
+                        child: Image.asset('assets/image/math.jpg',height: 250,
                           width: double.infinity,
                           fit: BoxFit.cover,
                           color: Colors.white.withOpacity(0.8),
-                          colorBlendMode: BlendMode.modulate,
+                          colorBlendMode: BlendMode.modulate,),
+                          
                         ),
                       ),
                     ),
-                  ),
+                  
                   Container(
                       alignment: Alignment.center,
                       child: Text(
@@ -93,14 +110,11 @@ class _FirstPageState extends State<FirstPage> {
                             MaterialPageRoute(builder: (context) => ChooseFood()),
                           );
                         },
-                        child: Image.network(
-                          'assets/image/menu.jpg',
-                          height: 250,
+                         child: Image.asset('assets/image/foodmenu.jpg',height: 250,
                           width: double.infinity,
                           fit: BoxFit.cover,
                           color: Colors.white.withOpacity(0.8),
-                          colorBlendMode: BlendMode.modulate,
-                        ),
+                          colorBlendMode: BlendMode.modulate,),
                       ),
                     ),
                   ),
@@ -128,14 +142,11 @@ class _FirstPageState extends State<FirstPage> {
                             MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         },
-                        child: Image.network(
-                          'assets/image/cal.jpg',
-                          height: 250,
+                         child: Image.asset('assets/image/cal.jpg',height: 250,
                           width: double.infinity,
                           fit: BoxFit.cover,
                           color: Colors.white.withOpacity(0.8),
-                          colorBlendMode: BlendMode.modulate,
-                        ),
+                          colorBlendMode: BlendMode.modulate,),
                       ),
                     ),
                   ),
@@ -163,14 +174,11 @@ class _FirstPageState extends State<FirstPage> {
                             MaterialPageRoute(builder: (context) => Menu()),
                           );
                         },
-                        child: Image.network(
-                          'assets/image/foodmenu.jpg',
-                          height: 250,
+                         child: Image.asset('assets/image/menu.jpg',height: 250,
                           width: double.infinity,
                           fit: BoxFit.cover,
                           color: Colors.white.withOpacity(0.8),
-                          colorBlendMode: BlendMode.modulate,
-                        ),
+                          colorBlendMode: BlendMode.modulate,),
                       ),
                     ),
                   ),

@@ -12,7 +12,7 @@ class ChooseFood extends StatefulWidget {
 class _ChooseFoodState extends State<ChooseFood> {
   List<Foodmenu> menu=[
     Foodmenu("กุ้งเผา","5000","assets/image/กุ้งเผา.jpg"),
-    Foodmenu("กระเพรา","80","assets/image/กระเพรา1.jpg"),
+    Foodmenu("ต้มยำ","80","assets/image/ต้มยำ.jpg"),
     Foodmenu("ส้มตำ", "60","assets/image/ส้มตำ.jpg")
   ];
 
@@ -20,8 +20,9 @@ class _ChooseFoodState extends State<ChooseFood> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("เมนูอาหาร"),
-          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: Text("เมนูอาหาร",style: TextStyle(color: Colors.white),),
+          backgroundColor: Colors.red,
         ),
         body: ListView.builder(
           itemCount: menu.length,
